@@ -29,20 +29,23 @@ class ViewController: UIViewController {
         timerDisplay.text = String(counter)
         stopButton.isEnabled = false
         
-//Mark - Button Design
-        stopButton.layer.cornerRadius = stopButton.bounds.width / 5.0
+//Mark - Button/Label Design
+        timerDisplay.layer.cornerRadius = 5.0
+        timerDisplay.layer.masksToBounds = true 
+        
+        stopButton.layer.cornerRadius = stopButton.bounds.width / 2.0
         stopButton.layer.borderWidth = 3
-        stopButton.layer.borderColor = UIColor.black.cgColor
+        stopButton.layer.borderColor = UIColor.darkGray.cgColor
         
        
-        start.layer.cornerRadius = start.bounds.width / 5.0
+        start.layer.cornerRadius = start.bounds.width / 2.0
         start.layer.borderWidth = 3
-        start.layer.borderColor = UIColor.black.cgColor
+        start.layer.borderColor = UIColor.darkGray.cgColor
         
         
         resetButton.layer.cornerRadius = start.bounds.width / 5.0
         resetButton.layer.borderWidth = 3
-        resetButton.layer.borderColor = UIColor.black.cgColor
+        resetButton.layer.borderColor = UIColor.darkGray.cgColor
       
         
     }
