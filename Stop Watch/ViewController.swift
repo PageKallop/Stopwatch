@@ -18,7 +18,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var start: UIButton!
     
-    var counter = 0.0
+    // Initialize timer
+    var counter = 0.00
     var timer = Timer()
     var isRunning = false
     
@@ -31,7 +32,8 @@ class ViewController: UIViewController {
         
 //Mark - Button/Label Design
         timerDisplay.layer.cornerRadius = 5.0
-        timerDisplay.layer.masksToBounds = true 
+        timerDisplay.layer.masksToBounds = true
+        timerDisplay.textAlignment = .center
         
         stopButton.layer.cornerRadius = stopButton.bounds.width / 2.0
         stopButton.layer.borderWidth = 3
@@ -49,7 +51,7 @@ class ViewController: UIViewController {
       
         
     }
-//Mark Button Functionality
+// Reset Button Functionality
     @IBAction func resetButton(_ sender: UIButton) {
         start.isEnabled = true
         stopButton.isEnabled = false
@@ -59,6 +61,8 @@ class ViewController: UIViewController {
         timerDisplay.text = String(counter)
     }
     
+    // Stop Button Functionality
+    
     @IBAction func stopButton(_ sender: UIButton) {
         
         start.isEnabled = true
@@ -66,6 +70,8 @@ class ViewController: UIViewController {
         timer.invalidate()
         isRunning = false
     }
+    
+    // Start Button Functionality
     
     @IBAction func startButton(_ sender: UIButton) {
         
@@ -75,8 +81,12 @@ class ViewController: UIViewController {
         start.isEnabled = false
         stopButton.isEnabled = true
         
+        // Create timer
+        
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(UpdateTimer), userInfo: nil, repeats: true)
     }
+    
+    // Adding time to timer
     
     @objc func UpdateTimer(){
         counter = counter + 0.1
